@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+    <main>
+        <div class="submit-details">
+            <% if(locals.fullName, locals.email, locals.text){%>
+                <h1 class="contact-answer">Thank you for reaching out to us!</h1>
+                <p style="margin-bottom: 54px;" class="contact-answer">Waiting time for the answer from our team is
+                    around 2 business days, <br>
+                    Thank you for waiting and Good Luck!</p>
+                <!--Post contact details -->
+                <h2 class="contact-details">Your contact details has been submited:</h2>
+                <p class="contact-details">
+                    Full Name: <%=fullName %>
+                </p>
+                <p class="contact-details">
+                    Email: <%=email %>
+                </p>
+                <p class="contact-details">
+                    Comment: <%=text %>
+                </p>
+                <button action="/submit/edit" method="POST" class="btn contact-details"> Edit</button>
+                <button class="btn">Delete</button>
+                <script>
+                    alert("Your contact deteils has been submited!");
+                </script>
+                <%} else {%>
+                    <h1 style="text-align: center;margin-top: 10%;">Please submit all the lines in the contact form.
+                    </h1>
+                    <p style="text-align: center;">Thank you!</p>
+                    <% }%>
+        </div>
+    </main>
+    <%- include("partials/footer.ejs") %>

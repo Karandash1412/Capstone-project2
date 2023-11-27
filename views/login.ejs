@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs")%>
+    <div class="main-container">
+        <div class="flex-login">
+            <form action="/login-data" method="post">
+                <div>
+                    <label class="enter-data" for="uName"><b>Username</b></label>
+                    <input class="enter-data" type="text" placeholder="Enter Username" name="uName">
+                </div>
+                <div>
+                    <label class="enter-data" for="psw"><b>Password</b></label>
+                    <input class="enter-data" type="text" placeholder="Enter Password" name="psw">
+                </div>
+                <button id="new-post" class="btn" type="submit" style="margin-top: 25px;">Login</button>
+            </form>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs")%>

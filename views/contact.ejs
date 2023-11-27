@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+    <div class="contact-main-container">
+        <div class="contact-container1">
+            <img src="Image/contact.jpeg" alt="image of live box under the rain" style="width:100%">
+        </div>
+        <div class="contact-container2">
+            <div class="rightside-top">
+                <h2 style="margin-top: 6.5%;">Contact us</h2>
+            </div>
+            <div class="rightside-down">
+                <form class="contactForm" action="/submit" method="POST">
+                    <input name="name" type="text" class="feedback-input" placeholder="Full Name:" />
+                    <input name="email" type="text" class="feedback-input" placeholder="Email:" />
+                    <input name="text" type="text" class="feedback-input" placeholder="Comment:" />
+                    <input id="click" class="submit" type="submit" value="Contact Us" />
+                </form>
+                <div class="currentInfo">
+                    <div class="childCurrentInfo">
+                        <h3>Contact</h3>
+                        <a href="mailto:bestcole10@gmail.com" style="margin: 0;"> webmaster@example.com</a>
+                    </div>
+                    <div class="childCurrentInfo">
+                        <h3>Based in</h3>
+                        <p>Canada, Surrey, BC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include("partials/footer.ejs") %>
