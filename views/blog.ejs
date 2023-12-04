@@ -1,5 +1,41 @@
 <%- include("partials/header.ejs") %>
-<div class="main-container">
-    
-</div>
-<%- include("partials/footer.ejs") %>
+    <div class="main-container main-blog">
+        <div>
+            <h1>Admin access: </h1>
+        </div>
+        <form action="/new-post" method="post">
+            <div class="blog-post">
+                <form action="/new-post" method="post">
+                    <div>
+                        <label for="newpost">
+                            <h3>Your Blog:</h3>
+                        </label>
+                    </div>
+                    <div>
+                        <textarea type="text" placeholder="New Blog Post" name="newpost" class="newpost"></textarea>
+                    </div>
+                    <div>
+                        <button class="btn new-post" type="submit">Create new Post</button>
+                    </div>
+                </form>
+            </div>
+        </form>
+        <% for (var i=0; i<posts.length; i++){%>
+            <div style="margin-top:30px;">
+                <h2>Post <%=i + 1 %>
+                </h2>
+                <%=posts [i] %>
+                    <div>
+                        <form action="/edit" method="get" class="blog-btn">
+                            <input type="hidden" name="postcontent" value="<%= posts [i]%>">
+                            <input type="hidden" name="postindex" value="<%=i%>">
+                            <button class="btn" type="submit">Edit</button>
+                        </form>
+                        <form action="/delete" method="post" class="blog-btn">
+                            <div>
+                                <button class="btn" type="submit">Delete</button>
+                        </form>
+                    </div>
+            </div>
+            <% } %>
+    </div>

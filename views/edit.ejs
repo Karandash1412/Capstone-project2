@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+    <div class="main-container main-blog">
+        <div class="container">
+            <h1 class="blog-head edit">
+                Edit Blog Post
+            </h1>
+            <form action="/update" method="post" class="blog-btn">
+                <textarea type="text" name="editpost" class="newpost" required><%=data.postContent%></textarea>
+                <input type="hidden" name="postindex" value="<%=data.postIndex%>">
+                <div class="button-container">
+                    <button id="new-post" class="btn" type="submit">Update Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

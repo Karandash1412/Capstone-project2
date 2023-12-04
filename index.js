@@ -14,7 +14,10 @@ const data = {
     admin: false,
     fullName: [],
     email: [],
-    text: []
+    text: [],
+    posts: ["Lorem ipsum note dare ate"],
+    postContent: null,
+    postIndex: null
 }
 app.get("/", (req, res) => {
     res.render("index.ejs");
@@ -24,7 +27,7 @@ app.post("/login-data", (req, res) => {
     if (req.body.uName === "Admin" && req.body.psw === "admin") {
         data.admin = true;
         console.log("Admin password correct");
-        res.render("blog.ejs",data);
+        res.render("blog.ejs", data);
     }
     else {
         data.admin = false;
@@ -35,8 +38,9 @@ app.post("/login-data", (req, res) => {
 
 app.get("/login", (req, res) => {
     if (data.admin === true) {
-        res.render("blog.ejs");
-    } else {    
+
+        res.render("blog.ejs", data);
+    } else {
         res.render("login.ejs");
     }
 });
@@ -73,6 +77,31 @@ app.post("/submit/edit", (req, res) => {
 app.delete("/submit/delete", (req, res) => {
     res.render("contact.ejs");
 });
+
+app.post("/new-post", (req, res) => {
+    const newPost = req.body.newpost;
+    data.posts.push(newPost);
+    res.redirect("/login");
+})
+
+app.get("/edit", (req, res) => {
+    data.postIndex = req.query.postindex;
+    data.postContent = req.query.postcontent;
+    console.log(data.postIndex + data.postContent)
+    res.render("edit.ejs", { data })
+})
+app.post("/update",(req,res)=>{
+    const update = req.body.editpost;
+    data.admin=true;
+    data.posts[data.postIndex]=update;   
+    res.render("blog.ejs",data)
+   })
+
+   app.post("/delete",(req,res)=>{
+    const whichPost = req.body.value;
+    data.posts.pop(whichPost);
+    res.redirect("/login");
+})
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);

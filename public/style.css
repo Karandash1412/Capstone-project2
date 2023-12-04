@@ -335,6 +335,36 @@ footer {
     text-align: center;
 }
 
+/* blog section*/
+.main-blog {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 7%;
+}
+
+.newpost {
+    height: 200px;
+    width: 1140px;
+    resize: both;
+}
+
+.blog-post {
+    height: 300px;
+    width: 400px;
+}
+
+.new-post {
+    font-size: 0.7rem;
+    width: 121px;
+    height: 24px;
+}
+
+.blog-btn{
+    align-items: flex-start;
+    margin-top: 5px;
+
+}
+/* responsive ste */
 @media (max-width:1200px) {
     .img-logo {
         display: none;
